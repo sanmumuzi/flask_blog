@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask
+from flaskext.markdown import Markdown
 
 
 def create_app(test_config=None):
@@ -19,6 +20,8 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    Markdown(app)
 
     # @app.route('/')
     # def index():
